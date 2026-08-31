@@ -46,6 +46,27 @@ open DupFinder.app    # 双击运行，或在 Finder 中双击
 
 最低系统：**macOS 13 (Ventura)**，Apple Silicon / Intel 通用（本机构建为 arm64）。
 
+## 从 GitHub 克隆后构建
+本项目是纯 SwiftPM 工程，无需开发者账号、无需签名即可在本地编译运行。
+
+```bash
+git clone https://github.com/zwang43/DupFinder.git
+cd DupFinder
+./build.sh            # release 编译并打包 DupFinder.app
+open DupFinder.app    # 双击运行
+```
+
+构建前提：
+- macOS 13+，并已安装 **Xcode 命令行工具**（`xcode-select --install`）；
+- 首次编译会自动拉取 SwiftPM manifest，统一走 `--disable-sandbox`（已封装进 `build.sh`）；
+- 产物 `DupFinder.app` 在仓库根目录，`open` 即可运行，无需公证。
+
+重跑核心逻辑冒烟测试：
+
+```bash
+./build.sh smoke      # 18 项断言
+```
+
 ## 权限说明（重要）
 扫描 **桌面 / 文档 / 下载 / 照片** 等受保护目录时，macOS 会弹出 **完全磁盘访问 / 文件访问** 授权提示——这是系统 TCC 保护，点「允许」即可。自用场景下无需付费开发者账号、无需签名公证。
 
