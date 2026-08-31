@@ -1,0 +1,12 @@
+# SwiftPM build artifacts
+.build/
+
+# Packaged app (rebuild anytime via ./build.sh)
+DupFinder.app/
+
+# macOS metadata
+.DS_Store
+
+# Editor / OS temp
+*.swp
+*.tmp
